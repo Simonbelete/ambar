@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:ambar/home.dart';
+import 'widgets/primary_appbar_widget.dart';
+import 'package:ambar/widgets/search_bar_widget.dart';
+import 'package:ambar/themes/default_theme.dart';
 
 class App extends StatelessWidget {
-  static const String _title = 'አምባር መዝገበ-ቃላት';
-
+  @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
-      title: _title,
-      home: Home(),
+      theme: DefaultTheme.light,
+      home: Scaffold(
+        appBar: PrimaryAppBar(),
+        body: Column(
+          children: <Widget>[
+            SearchBar(),
+          ]
+        )
+      )
     );
   }
 }
