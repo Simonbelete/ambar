@@ -10,7 +10,7 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(80.0, 10.0, 80.0, 20.0),
+      padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
       color: ColorSets.colorPrimaryRed,
       child: Search(),
     );
