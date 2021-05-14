@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 /// [Class]
 /// {@endTemplate}
 
+final dictionaryTABLE = 'dictionary';
 final favoriteTABLE = 'favorite';
 final searchHistoryTABLE = 'search_history';
 
