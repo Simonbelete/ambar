@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'widgets/primary_appbar_widget.dart';
-import 'package:ambar/widgets/search_bar_widget.dart';
 import 'package:ambar/themes/default_theme.dart';
-
+import 'package:ambar/presentation/screens/home_screen.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
       theme: DefaultTheme.light,
-      home: Scaffold(
-        appBar: PrimaryAppBar(),
-        body: Column(
-          children: <Widget>[
-            SearchBar(),
-          ]
-        )
-      )
+      home: HomeScreen(),
     );
   }
 }

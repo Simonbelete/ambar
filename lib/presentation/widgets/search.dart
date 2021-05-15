@@ -15,7 +15,7 @@ class Search extends StatelessWidget {
       textAlign: TextAlign.left,
       maxLines: 1,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 100.0),
+        contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 10.0),
         prefixIcon: Icon(
           Icons.search,
           size: 25.0,

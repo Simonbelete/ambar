@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ambar/utils/ColorSets.dart';
-import 'package:ambar/widgets/search.dart';
+import 'package:ambar/presentation/widgets/search.dart';
 
 /// {@template search_bar_widget}
 /// [Widget]
@@ -10,7 +10,7 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
+      padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
       color: ColorSets.colorPrimaryRed,
       child: Search(),
     );
