@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:ambar/models/dictionary_model.dart';
+import 'package:ambar/data/models/dictionary_model.dart';
 import 'package:ambar/database/database.dart';
 
 /// {@template}
