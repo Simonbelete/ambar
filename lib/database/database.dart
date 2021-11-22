@@ -19,23 +19,25 @@ class DatabaseProvider {
   Database _database;
 
   Future<Database> get database async {
-    if(_database != null) return _database;
+    if (_database != null) return _database;
     _database = await createDatabase();
     return _database;
   }
 
   Future<Database> createDatabase() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'ambar.db');
+    String path = join(documentDirectory.path, 'ambar');
 
-    Database database = await openDatabase(path, version: 1, onCreate: initDatabase);
+    Database database =
+        await openDatabase(path, version: 1, onCreate: initDatabase);
 
     return database;
   }
 
   void initDatabase(Database database, int version) async {
     await database.execute(
-      'CREATE TABLE $favoriteTABLE (id INTEGER PRIMARY KEY, dictionary_id INTEGER)'
-    );
+        'CREATE TABLE $dictionaryTABLE (id INTEGER PRIMARY KEY, key TEXT, description TEXT)');
+    await database.execute(
+        'CREATE TABLE $favoriteTABLE (id INTEGER PRIMARY KEY, dictionary_id INTEGER)');
   }
 }

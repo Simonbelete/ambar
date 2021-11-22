@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ambar/data/models/dictionary_model.dart';
+import 'package:ambar/database/database.dart';
 
 class App extends StatelessWidget {
   @override
@@ -71,10 +72,14 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
-  List<Dictionary> _dicts = [
-    Dictionary(id: 1, key: 'abcddddd', description: 'aa'),
-    Dictionary(id: 1, key: 'b', description: 'bb')
-  ];
+  List<Dictionary> _dicts = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,5 +100,17 @@ class _HomePageBodyState extends State<HomePageBody> {
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
+  }
+
+  Future<List<Dictionary>> _loadData() async {
+    final db = await DatabaseProvider().database;
+    final dicts = await db.query('dictionary');
+    final dictsObj = List.generate(
+        dicts.length,
+        (index) => Dictionary(
+            id: dicts[index]['id'],
+            key: dicts[index]['key'],
+            description: dicts[index]['description']));
+    _dicts = dictsObj;
   }
 }
