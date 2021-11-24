@@ -104,13 +104,19 @@ class _HomePageBodyState extends State<HomePageBody> {
 
   Future<List<Dictionary>> _loadData() async {
     final db = await DatabaseProvider().database;
-    final dicts = await db.query('dictionary');
+    await db
+        .insert('dictionary', {'key': 'ddd', 'description': 'descripton 123'});
+    final List<Map<String, dynamic>> dicts = await db.query('dictionary');
+    print(dicts);
     final dictsObj = List.generate(
         dicts.length,
         (index) => Dictionary(
             id: dicts[index]['id'],
             key: dicts[index]['key'],
             description: dicts[index]['description']));
-    _dicts = dictsObj;
+    setState(() {
+      _dicts = dictsObj;
+    });
+    return dictsObj;
   }
 }

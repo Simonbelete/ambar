@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:path_provider/path_provider.dart';
 
 /// {@template database}
 /// [Class]
@@ -25,8 +24,9 @@ class DatabaseProvider {
   }
 
   Future<Database> createDatabase() async {
-    Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'ambar');
+    var documentDirectory = await getDatabasesPath();
+    print(documentDirectory);
+    String path = join(documentDirectory, 'ambar.db');
 
     Database database =
         await openDatabase(path, version: 1, onCreate: initDatabase);
